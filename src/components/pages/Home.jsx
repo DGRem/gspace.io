@@ -7,6 +7,9 @@ export default function Home() {
     return (
         <>
             <NavBar />
+            <div>
+                This is the landing page.
+            </div>
             <Footer/>
         </>
     )

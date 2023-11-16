@@ -14,6 +14,7 @@ export default function NavBar() {
                         <li><Link to="/booking">Book Now</Link></li>
                         <li><Link to="/gallery">Gallery</Link></li>
                         <li><Link to="/reviews">Reviews</Link></li>
+                        <li><a href="#">Contact Us</a></li>
                         <li><Link to="/faq">FAQ</Link></li>
                     </ul>
                 </div>
