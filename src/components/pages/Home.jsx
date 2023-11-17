@@ -9,6 +9,7 @@ export default function Home() {
             <NavBar />
             <div>
                 This is the landing page.
+                TEST PUSH
             </div>
             <Footer/>
         </>
