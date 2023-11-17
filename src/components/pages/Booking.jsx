@@ -8,7 +8,7 @@ export default function Booking() {
         <>
             <NavBar/>
             <div>
-                This is Booking
+                TEST PUSH
             </div>
             <Footer/>
         </>
