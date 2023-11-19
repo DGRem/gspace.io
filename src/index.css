@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 30px;
+    margin-bottom: 50px;
+}
+
+.card {
+    position: relative;
+    width: 140px;
+    height: 160px;
+    border-radius: 8px;
+    transition: 1000ms all;
+    transform-origin: center left;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5);
+    outline: 1px solid;
+    overflow: hidden;
+}
+
+
+.card:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
+
+.card:hover ~ .card {
+    font-weight: bold;
+    cursor: pointer;
+    transform: translateX(22px);
+}
