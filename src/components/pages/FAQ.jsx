@@ -38,7 +38,6 @@ const ArcadeFAQ = () => {
      </div>
     </section>
     <div className="container mx-auto mt-8 p-4">
-      
       {faqs.map((faq, index) => (
         <div key={index} className="mb-4">
           <div
