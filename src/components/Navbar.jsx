@@ -71,19 +71,19 @@ export default function NavBar () {
                     </button>
                 </div>
                 <ul className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6 ">
-                    <li className="text-sm text-gray-400 hover:text-gray-500 hover:text-lg"><Link to="/">Home</Link></li>
-                    <li className="text-sm text-gray-400 hover:text-gray-500 hover:text-lg"><Link to="/booking">Book Now</Link></li>
-                    <li className="text-sm text-gray-400 hover:text-gray-500 hover:text-lg"><Link to="/gallery">Gallery</Link></li>
-                    <li className="text-sm text-gray-400 hover:text-gray-500 hover:text-lg"><Link to="/reviews">Reviews</Link></li>
-                    <li className="text-sm text-gray-400 hover:text-gray-500 hover:text-lg"><a href="Footer">Contact Us</a></li>
-                    <li className="text-sm text-gray-400 hover:text-gray-500 hover:text-lg"><a  href="#">FAQ</a></li>
+                    <li className="text-sm text-gray-400 hover:text-gray-500"><Link to="/">Home</Link></li>
+                    <li className="text-sm text-gray-400 hover:text-gray-500"><Link to="/booking">Book Now</Link></li>
+                    <li className="text-sm text-gray-400 hover:text-gray-500"><Link to="/gallery">Gallery</Link></li>
+                    <li className="text-sm text-gray-400 hover:text-gray-500"><Link to="/reviews">Reviews</Link></li>
+                    <li className="text-sm text-gray-400 hover:text-gray-500"><a href="Footer">Contact Us</a></li>
+                    <li className="text-sm text-gray-400 hover:text-gray-500"><Link to="/faq">FAQ</Link></li>
                 </ul>
                 <a className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" href="#">Log In</a>
                 <a className="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" href="#">Register</a>
             </nav>
             <div className="navbar-menu relative z-50 hidden">
                 <div className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
-                <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
+                <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-gradient-to-br from-violet-800 to-teal-400 border-r overflow-y-auto">
                     <div className="flex items-center mb-8">
                         <a className="mr-auto text-3xl font-bold leading-none" href="#">
                             G-Space
@@ -96,29 +96,32 @@ export default function NavBar () {
                     </div>
                     <div>
                         <ul>
-                            <li className="mb-1">
-                                <a className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Home</a>
+                            <li className="mb-1 block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">
+                                <Link to="/">Home</Link>
                             </li>
-                            <li className="mb-1">
-                                <a className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">About Us</a>
+                            <li className="mb-1 block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">
+                                <Link to="/booking">Book Now</Link>
                             </li>
-                            <li className="mb-1">
-                                <a className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Services</a>
+                            <li className="mb-1 block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">
+                                <Link to="/gallery">Gallery</Link>
                             </li>
-                            <li className="mb-1">
-                                <a className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Pricing</a>
+                            <li className="mb-1 block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">
+                                <Link to="/reviews">Reviews</Link>
                             </li>
-                            <li className="mb-1">
-                                <a className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Contact</a>
+                            <li className="mb-1 block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">
+                                <a href="Footer">Contact Us</a>
+                            </li>
+                            <li className="mb-1 block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">
+                                <Link to="/faq">FAQ</Link>
                             </li>
                         </ul>
                     </div>
                     <div className="mt-auto">
                         <div className="pt-6">
-                            <a className="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold bg-gray-50 hover:bg-gray-100 rounded-xl" href="#">Sign in</a>
-                            <a className="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl" href="#">Sign Up</a>
+                            <a className="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold bg-gray-50 hover:bg-gray-100 rounded" href="#">Sign in</a>
+                            <a className="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded" href="#">Sign Up</a>
                         </div>
-                        <p className="my-4 text-xs text-center text-gray-400">
+                        <p className="my-4 text-xs text-center text-white">
                             <span>Copyright © 2021</span>
                         </p>
                     </div>
