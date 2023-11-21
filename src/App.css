@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
-    
   }
 
     /*for mainIMG text overlay*/
@@ -11,6 +12,13 @@
       font-size: 24px;
       font-weight: bold;
       padding: 10px;
+    }
+
+
+    .text, .highlight-title, .about-text, .booking-title, .room-name, .Partner-title, .faq-title, .faq-questions, .learn-more {
+     font-family: 'Rowdies', sans-serif;
+
+
     }
 
 
