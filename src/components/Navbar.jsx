@@ -57,7 +57,7 @@ export default function NavBar () {
 
     return (
         <>
-            <nav className="relative px-4 py-4 flex justify-between items-center bg-white">
+            <nav className="relative px-4 py-4 flex justify-between items-center bg-transparent border-b-2 border-b-slate-300">
                 <a className="text-3xl font-bold leading-none" href="#">
                     {/*PENDING LOGO*/}
                     G-Space
@@ -70,35 +70,16 @@ export default function NavBar () {
                         </svg>
                     </button>
                 </div>
-                <ul className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6">
-                    <li className="text-sm text-gray-400 hover:text-gray-500"><Link to="/">Home</Link></li>
-                    <li className="text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" className="w-4 h-4 current-fill" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                        </svg>
-                    </li>
-                    <li className="text-sm text-blue-600 font-bold"><Link to="/booking">Book Now</Link></li>
-                    <li className="text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" className="w-4 h-4 current-fill" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                        </svg>
-                    </li>
-                    <li><a class="text-sm text-gray-400 hover:text-gray-500" href="#">Services</a></li>
-                    <li className="text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" className="w-4 h-4 current-fill" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                        </svg>
-                    </li>
-                    <li><a className="text-sm text-gray-400 hover:text-gray-500" href="#">Pricing</a></li>
-                    <li className="text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" className="w-4 h-4 current-fill" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                        </svg>
-                    </li>
-                    <li><a className="text-sm text-gray-400 hover:text-gray-500" href="#">Contact</a></li>
+                <ul className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6 ">
+                    <li className="text-sm text-gray-400 hover:text-gray-500 hover:text-lg"><Link to="/">Home</Link></li>
+                    <li className="text-sm text-gray-400 hover:text-gray-500 hover:text-lg"><Link to="/booking">Book Now</Link></li>
+                    <li className="text-sm text-gray-400 hover:text-gray-500 hover:text-lg"><Link to="/gallery">Gallery</Link></li>
+                    <li className="text-sm text-gray-400 hover:text-gray-500 hover:text-lg"><Link to="/reviews">Reviews</Link></li>
+                    <li className="text-sm text-gray-400 hover:text-gray-500 hover:text-lg"><a href="Footer">Contact Us</a></li>
+                    <li className="text-sm text-gray-400 hover:text-gray-500 hover:text-lg"><a  href="#">FAQ</a></li>
                 </ul>
-                <a className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" href="#">Sign In</a>
-                <a className="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" href="#">Sign up</a>
+                <a className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" href="#">Log In</a>
+                <a className="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" href="#">Register</a>
             </nav>
             <div className="navbar-menu relative z-50 hidden">
                 <div className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
