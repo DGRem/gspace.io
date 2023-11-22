@@ -1,14 +1,33 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import NavBar from '../Navbar';
 import Footer from '../Footer';
-import PaymentModal from '../PaymentModal';
+import ConfirmBookingModal from '../ConfirmBooking';
+import Pic1 from '/src/assets/images/arcadebook.jpeg';
+import Pic2 from '/src/assets/images/consolebook.jpeg';
+import Pic3 from '/src/assets/images/pcbook.jpeg';
+
+const RoomDetails = {
+  arcade: {
+    image: Pic1,
+    description: 'Welcome to the Nexus of Nostalgia, the Arcade Room! Immerse yourself in a symphony of electronic symphonies and pixelated dreams. From the hypnotic glow of classic CRT monitors to the click-clack of arcade buttons, this room is a time capsule of gaming evolution. Unleash your inner pixel warrior as you navigate through mazes, dodge virtual enemies, and conquer high scores that echo through the corridors of gaming history. Get ready to level up your reality, where every token is a key to unlocking memories and every joystick is a magic wand in the hands of a digital sorcerer. Step inside, Player One, and let the adventure begin!',
+    price: 'P1,000 ',
+  },
+  console: {
+    image: Pic2,
+    description: "Welcome to the Console Citadel, where pixels meet power! Immerse yourself in the sleek aesthetics and high-tech prowess of gaming consoles from across the ages. From the iconic hum of loading screens to the satisfying click of a controller, this room is a haven for console enthusiasts. Unleash your inner adventurer as you explore vast digital landscapes, challenge legendary bosses, and forge unforgettable gaming moments. Get ready to level up your gaming experience, where every button press is a step towards victory and every console is a portal to infinite worlds. Grab your controller, Player Two, and let the gaming saga unfold!",
+    price: 'P1,500',
+  },
+  desktop: {
+    image: Pic3,
+    description: "Welcome to the Binary Battleground, the Desktop Gaming Room! Here, the hum of cooling fans harmonizes with the click-clack of mechanical keyboards, creating a symphony of digital conquest. Immerse yourself in the world of high-performance rigs, where graphics are crystal clear, and framerates are as smooth as a perfectly executed headshot. Unleash your strategic genius as you command armies, conquer galaxies, and embark on epic quests. Get ready to level up your gaming rig, where every pixel is a battlefield and every keystroke is a tactical maneuver. Power up your gaming throne, Player Zero, and let the desktop odyssey commence!",
+    price: 'P2,000',
+  },
+};
 
 export default function Booking() {
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [selectedTimeSlot, setSelectedTimeSlot] = useState(null);
-  const [selectedRoom, setSelectedRoom] = useState(null);
-  const [selectedLocation, setSelectedLocation] = useState(null);
-  const [isPaymentComplete, setPaymentComplete] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]); // Set to today's date by default
+  const [selectedTimeSlot, setSelectedTimeSlot] = useState('');
+  const [selectedRoom, setSelectedRoom] = useState('');
   const [isModalOpen, setModalOpen] = useState(false);
 
   const handleDateChange = (date) => {
@@ -23,35 +42,13 @@ export default function Booking() {
     setSelectedRoom(roomType);
   };
 
-  const handleLocationChange = (location) => {
-    setSelectedLocation(location);
-  };
-
   const isDateAvailable = (date) => {
-    // PENDING DATABASE FOR CHECKING
-    // SIMPLIFIED EXAMPLE
     const currentDate = new Date();
     const selectedDate = new Date(date);
-    return selectedDate >= currentDate; // DATE CHECKER
+    return selectedDate >= currentDate; 
   };
 
-  const handlePayment = () => {
-    // PENDING PAYMENT INTEGRATION
-    // SAMPLE SUCCESS PAYMENT
-    setModalOpen(true);
-  };
-
-  const confirmPayment = () => {
-    // PENDING PAYMENT INTEGRATION
-    // SAMPLE SUCCESS PAYMENT
-    setPaymentComplete(true);
-    setModalOpen(false);
-    alert('Transaction successful! Your booking is confirmed.');
-  };
-
-  
-
-  const closePaymentModal = () => {
+  const closeBookingModal = () => {
     setModalOpen(false);
   };
 
@@ -61,70 +58,68 @@ export default function Booking() {
     <>
       <NavBar />
       <div className="container mx-auto p-4 flex">
+        {/* Left Column */}
         <div className="w-1/2 pr-4">
           <h1 className="text-2xl font-bold mb-4">Book a Gaming Room</h1>
 
+          {/* Date Selector */}
           <div className="mb-2">
             <label className="block text-sm font-semibold mb-2">Select Date:</label>
             <input
               type="date"
               onChange={(e) => handleDateChange(e.target.value)}
+              value={selectedDate}
               className="border rounded px-3 py-2 w-full"
+              required
             />
           </div>
 
+          {/* Time Slot Selector */}
           <div className="mb-2">
             <label className="block text-sm font-semibold mb-2">Select Time Slot:</label>
             <select
               onChange={(e) => handleTimeSlotChange(e.target.value)}
+              value={selectedTimeSlot}
               className="border rounded px-3 py-2 w-full"
+              required
             >
+              <option value="" disabled hidden>Select Time Slot</option>
               {timeSlots.map((slot) => (
                 <option key={slot} value={slot}>{slot}</option>
               ))}
             </select>
           </div>
 
+          {/* Room Type Selector */}
           <div className="mb-2">
             <label className="block text-sm font-semibold mb-2">Select Room Type:</label>
             <select
               onChange={(e) => handleRoomChange(e.target.value)}
+              value={selectedRoom}
               className="border rounded px-3 py-2 w-full"
+              required
             >
+              <option value="" disabled hidden>Select Room Type</option>
               <option value="arcade">Arcade Room</option>
               <option value="console">Console Room</option>
               <option value="desktop">Desktop Gaming Room</option>
             </select>
           </div>
 
-          <div className="mb-2">
-            <label className="block text-sm font-semibold mb-2">Select Location:</label>
-            <select
-              onChange={(e) => handleLocationChange(e.target.value)}
-              className="border rounded px-3 py-2 w-full"
-            >
-              <option value="location1">Location 1</option>
-              <option value="location2">Location 2</option>
-              {/* Add more locations as needed */}
-            </select>
-          </div>
-
-          {selectedDate && selectedRoom && !isPaymentComplete && (
+          {/* Booking Confirmation Section */}
+          {selectedDate && selectedRoom && !isModalOpen && (
             <div className="mb-4">
               <h2 className="text-lg font-semibold mb-2">Confirm Booking</h2>
               <p className="mb-1">Date: {selectedDate}</p>
+              <p className="mb-1">Time Slot: {selectedTimeSlot}</p>
               <p className="mb-1">Room Type: {selectedRoom}</p>
-              {selectedLocation && (
-                <p className="mb-2">Location: {selectedLocation}</p>
-              )}
               {isDateAvailable(selectedDate) ? (
                 <>
-                  <p className="mb-1">Total Amount: $20 (for example)</p>
                   <button
-                    onClick={handlePayment}
+                    onClick={() => setModalOpen(true)}
                     className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
                   >
-                    Proceed to Payment
+                    Check Availabilty
                   </button>
                 </>
               ) : (
@@ -132,84 +127,40 @@ export default function Booking() {
               )}
             </div>
           )}
-
-          {isPaymentComplete && (
-            <div className="mb-4">
-              <h2 className="text-lg font-semibold mb-2">Booking Confirmed!</h2>
-              <p>Your booking for {selectedRoom} on {selectedDate} is confirmed.</p>
-            </div>
-          )}
-
-          {/* Payment Section */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Payment</h2>
-            <p>Select a payment method:</p>
-            <div className="flex items-center mt-1">
-              <input type="radio" id="card" name="paymentMethod" value="card" className="mr-1" />
-              <label htmlFor="card" className="mr-3">Credit/Debit Card</label>
-              {/* ADD MORE PAYMENT OPTIONS AS NEEDED */}
-            </div>
-            <button
-              onClick={handlePayment}
-              className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 mt-2"
-            >
-              Proceed to Payment
-            </button>
-          </div>
         </div>
 
         {/* Right Column */}
         <div className="w-1/2 pl-4">
-          {/* Room Image Placeholder */}
-          <div className="mb-4">
-            <img
-              src="https://via.placeholder.com/400x200"
-              alt="Room Image"
-              className="w-full h-auto rounded"
-            />
-          </div>
 
-          {/* Room Details */}
-          <div className="mb-4">
-            <h2 className="text-lg font-semibold mb-2">Room Details</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at turpis eu metus fringilla imperdiet. Aliquam erat volutpat.</p>
-          </div>
-
-          {/* Sample Inclusions */}
-          <div className="mb-4">
-            <h2 className="text-lg font-semibold mb-2">Sample Inclusions</h2>
-            <ul>
-              <li>High-speed internet</li>
-              <li>Top-of-the-line gaming equipment</li>
-              <li>Comfortable seating</li>
-              {/* Add more inclusions as needed */}
-            </ul>
-          </div>
-
-          {/* Map Placeholder */}
-          <div className="mb-4">
-            <h2 className="text-lg font-semibold mb-2">Location</h2>
-            {/* PENDING MAP INTEGRATION */}
-            <p>Map Placeholder</p>
-          </div>
-
-          {/* Contact Us Section */}
-          <div className="mb-4">
-            <h2 className="text-lg font-semibold mb-2">Contact Us</h2>
-            <p>Email: contact@example.com</p>
-            <p>Phone: +1 (123) 456-7890</p>
-            <p>Address: 123 Main Street, Cityville, Country</p>
-          </div>
+          {/* Room Preview */}
+          {selectedRoom && RoomDetails[selectedRoom] && (
+            <div className="mb-4">
+              <h2 className="text-lg font-semibold mb-2">Room Preview</h2>
+              <img
+                src={RoomDetails[selectedRoom].image}
+                alt={`${selectedRoom} Room`}
+                className="w-full h-auto rounded"
+              />
+             <p>{RoomDetails[selectedRoom].description}</p>
+            <p>{RoomDetails[selectedRoom].price}</p>
+            </div>
+          )}
         </div>
       </div>
       <Footer />
 
-      {/* Render the PaymentModal conditionally */}
       {isModalOpen && (
-        <PaymentModal
+        <ConfirmBookingModal
           isOpen={isModalOpen}
-          onClose={closePaymentModal}
-          onConfirmPayment={confirmPayment}
+          onClose={closeBookingModal}
+          onConfirmBooking={() => {
+            closeBookingModal();
+          }}
+          bookingDetails={{
+            date: selectedDate,
+            time: selectedTimeSlot,
+            roomType: selectedRoom,
+          }}
         />
       )}
     </>
