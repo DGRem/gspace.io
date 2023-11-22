@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import NavBar from '../Navbar';
 import Footer from '../Footer';
+import PaymentModal from '../PaymentModal';
 
 export default function Booking() {
   const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedTimeSlot, setSelectedTimeSlot] = useState(null);
   const [selectedRoom, setSelectedRoom] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [isPaymentComplete, setPaymentComplete] = useState(false);
@@ -11,6 +13,10 @@ export default function Booking() {
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
+  };
+
+  const handleTimeSlotChange = (timeSlot) => {
+    setSelectedTimeSlot(timeSlot);
   };
 
   const handleRoomChange = (roomType) => {
@@ -40,11 +46,16 @@ export default function Booking() {
     // SAMPLE SUCCESS PAYMENT
     setPaymentComplete(true);
     setModalOpen(false);
+    alert('Transaction successful! Your booking is confirmed.');
   };
+
+  
 
   const closePaymentModal = () => {
     setModalOpen(false);
   };
+
+  const timeSlots = ['10:00 AM', '12:00 PM', '2:00 PM', '4:00 PM', '6:00 PM', '8:00 PM', '10:00 PM', '12:00 AM'];
 
   return (
     <>
@@ -60,6 +71,18 @@ export default function Booking() {
               onChange={(e) => handleDateChange(e.target.value)}
               className="border rounded px-3 py-2 w-full"
             />
+          </div>
+
+          <div className="mb-2">
+            <label className="block text-sm font-semibold mb-2">Select Time Slot:</label>
+            <select
+              onChange={(e) => handleTimeSlotChange(e.target.value)}
+              className="border rounded px-3 py-2 w-full"
+            >
+              {timeSlots.map((slot) => (
+                <option key={slot} value={slot}>{slot}</option>
+              ))}
+            </select>
           </div>
 
           <div className="mb-2">
