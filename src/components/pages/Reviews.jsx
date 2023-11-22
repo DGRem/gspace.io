@@ -1,30 +1,54 @@
 import Footer from "../Footer";
 import NavBar from "../Navbar";
-
-const reviews = [
-    // waiting sa API
-  ];
+ 
 
 
 export default function Reviews() {
     return (
         <>
             <NavBar/>
-            <section className="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply h-100px">
-     <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Reviews</h1>
-     </div>
-    </section>
-    <div className="container mx-auto mt-8 p-4">
-      <div className="flex flex-wrap justify-around">
-        {reviews.map((review, index) => (
-          <div key={index} className="bg-white p-4 rounded shadow mb-4">
-            <h3 className="text-lg font-semibold">{review.name}</h3>
-            <p className="text-gray-800">{review.comment}</p>
+
+  <section className="section-medium section-arrow--bottom-center section-arrow-primary-color bg-primary">
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+            <div className="md:col-span-12 text-white text-center">
+              <h2 className="section-title">What Others Say About Us</h2>
+              <p className="section-sub-title">
+                We are a passionate digital design agency that specializes in beautiful and easy-to-
+                <br /> use digital design &amp; web development services.
+              </p>
+            </div>
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
+      </section>
+
+      <section className="section-primary border-t border-gray-300">
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 testimonial-three testimonial-three--col-three">
+            {/* Testimonial 1 */}
+            <div className="md:col-span-1 testimonial-three-col">
+              <div className="testimonial-inner">
+                <div className="testimonial-image">
+                  <img className="w-48 h-48" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Testimonial Image" />
+                </div>
+                {/* Dito sir pwede lagay review API*/}
+                <div className="testimonial-content"> 
+                  <p>
+                    Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+                  </p>
+                </div>
+                <div className="testimonial-meta">
+                  <strong className="testimonial-name">Anna Vandana</strong>
+                  <span className="testimonial-job-title">CEO</span> – <a className="testimonial-link" href="#">Media Wiki</a>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 2 */}
+            {/* Repeat the above structure for Testimonial 2 and Testimonial 3 with the respective image URLs */}
+          </div>
+        </div>
+      </section>
             <Footer/>
         </>
     )
