@@ -20,7 +20,22 @@ const ArcadeFAQ = () => {
       question: 'Do you offer group discounts for gaming hub rentals?',
       answer: 'Yes, we offer group discounts for gaming hub rentals. Contact our customer service for more information on group rates and special packages.'
     },
-    
+    {
+      question: "Do you offer exclusive access to limited-edition game content?",
+      answer: "Yes, we collaborate with game developers to provide exclusive access to limited-edition game content or early releases. Stay updated on our latest offerings!."
+    },
+    {
+      question: "Can I book the gaming rooms for group events or parties?",
+      answer: "Absolutely! Our spacious gaming rooms are perfect for hosting group events, birthday parties, or gaming gatherings. Contact us for special group booking options."
+    },
+    {
+      question: "Are there themed gaming rooms available?",
+      answer: "Yes, we offer an array of themed rooms inspired by popular games or eras. Immerse yourself in themed environments designed to elevate your gaming experience."
+    },
+    {
+      question: "Can I bring my own gaming equipment?",
+      answer: "Of course! Feel free to bring your gaming gear. However, we also provide high-quality gaming equipment for your convenience."
+    },
   ];
 
   const [activeIndex, setActiveIndex] = useState(null);
@@ -32,30 +47,28 @@ const ArcadeFAQ = () => {
   return (
     <>
     <NavBar/>
-        <section className="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply h-100px">
-     <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">G-Space FAQ`s</h1>
-     </div>
-    </section>
-    <div className="container mx-auto mt-8 p-4">
+    <section className="bg-black pt-40">
+    <div className="container mx-auto p-4 mb-20">
       {faqs.map((faq, index) => (
         <div key={index} className="mb-4">
           <div
-            className="flex items-center justify-between bg-white p-4 rounded shadow cursor-pointer"
+            className="flex items-center justify-between bg-transparent border m-5 p-2 rounded shadow cursor-pointer"
             onClick={() => toggleFAQ(index)}
           >
-            <h3 className="text-lg font-semibold">{faq.question}</h3>
-            <span>{activeIndex === index ? '▲' : '▼'}</span>
+            <h3 className="faq-questions mb-2 text-xl font-bold text-customDarkPurple">{faq.question}</h3>
+            <span className="text-white">{activeIndex === index ? '▼' : '▼'}</span>
           </div>
           {activeIndex === index && (
-            <div className="bg-white p-4 rounded shadow mt-2">
-              <p className="text-gray-800">{faq.answer}</p>
+            <div className="bg-black rounded shadow mt-2">
+              <p className="text-lg ml-5 font-normal text-white">{faq.answer}</p>
             </div>
           )}
         </div>
       ))}
     </div>
     <Footer/>
+    </section>
+
     </>
   );
 };
