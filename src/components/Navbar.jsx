@@ -75,7 +75,7 @@ export default function NavBar () {
                     <li className="text-sm text-white"><Link to="/">Home</Link></li>
                     <li className="text-sm text-white"><Link to="/gallery">Gallery</Link></li>
                     <li className="text-sm text-white"><Link to="/reviews">Reviews</Link></li>
-                    <li className="text-sm text-white"><a href="Footer">Contact Us</a></li>
+                    <li className="text-sm text-white"><a href="#footer">Contact Us</a></li>
                     <li className="text-sm text-white"><Link to="/faq">FAQ</Link></li>
                 </ul>
                 <a className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200 bg-gradient-to-r from-customPurple to-customPink " href="#">Log In</a>
