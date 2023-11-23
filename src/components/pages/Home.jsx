@@ -75,17 +75,17 @@ export default function Home() {
                 <div className="bg-transparent border rounded-lg shadow md:flex-row md:max-w-md p-5">
                     <img className="w-24 mb-5" src={Wifi} alt=""/>
                         <h5 className="mb-2 text-xl font-bold text-customDarkPurple">High-Speed Connectivity</h5>
-                        <p className="mb-3 text-lg font-normal text-white mb-4">High-speed connectivity offers numerous benefits that positively impact various aspects of daily life, work, and entertainment.</p>
+                        <p className="mb-3 text-lg font-normal text-white">High-speed connectivity offers numerous benefits that positively impact various aspects of daily life, work, and entertainment.</p>
                 </div>
                 <div className="bg-transparent border rounded-lg shadow md:flex-row md:max-w-md p-5">
                     <img className="w-24 mb-5" src={Rooms} alt=""/>
                         <h5 className="mb-2 text-xl font-bold text-customDarkPurple">Inviting and Comfortable Rooms</h5>
-                        <p className="mb-3 text-lg font-normal text-white mb-4">Comfortable rooms in gaming can enhance the gaming experience. It allowing gamers to play for longer periods without discomfort or strain.</p>
+                        <p className="mb-3 text-lg font-normal text-white">Comfortable rooms in gaming can enhance the gaming experience. It allowing gamers to play for longer periods without discomfort or strain.</p>
                 </div>
                 <div className="bg-transparent border rounded-lg shadow md:flex-row md:max-w-md p-5">
                     <img className="w-36 mb-5" src={Food} alt=""/>
                         <h5 className="mb-2 text-xl font-bold text-customDarkPurple">No Food Restriction</h5>
-                        <p className="mb-3 text-lg font-normal text-white mb-4">While we don't provide food and drinks, you're welcome to bring your own. We encourage responsible consumption to maintain a comfortable gaming environment.</p>
+                        <p className="mb-3 text-lg font-normal text-white">While we don't provide food and drinks, you're welcome to bring your own. We encourage responsible consumption to maintain a comfortable gaming environment.</p>
                 </div>
             </div>
         </div>
