@@ -203,24 +203,11 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
+                <div id="footer">
+                    <Footer/>
+                </div>
             </div>
             
-
-
-
-            
-
-
-
-
-
-
-
-
-
-        
-
-        <Footer/>
         </>
     )
 };

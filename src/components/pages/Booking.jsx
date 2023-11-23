@@ -57,8 +57,8 @@ export default function Booking() {
   return (
     <>
       <NavBar />
-      <main className='bg-black'>
-      <div className="container mx-auto p-4 flex p-40 pb-96 text-white">
+      <main className='bg-customPurple text-white'>
+      <div className="container mx-auto p-4 flex pt-40 ">
         {/* Left Column */}
         <div className="w-1/2 pr-4">
           <div className="booking-title">
