@@ -17,6 +17,10 @@ import PlaceholderRev from "../../assets/Placeholder.png";
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 import "../../App.css"
+import Con1 from "/src/assets/images/console1.jpeg";
+import Con2 from "/src/assets/images/console2.jpeg";
+import Con3 from "/src/assets/images/console3.jpg";
+import Con4 from "/src/assets/images/console4.jpg";
 
 
 export default function Home() {
@@ -142,26 +146,6 @@ export default function Home() {
                 </button>
             </div>
         </div>
-
-        <div className="gallery flex flex-col bg-black">
-            <div className="gallery-title">
-                <h1 className="text-center md:text-6xl lg:text-7xl booking-area-title font-bold m-10 mt-20 bolder text-transparent bg-clip-text bg-gradient-to-r from-customPink to-customBlue">Gallery</h1>
-            </div>
-            <div className="gallery-content m-10">
-                <img src={PlaceholderGal} alt="" className="#" />
-            </div>
-        </div>
-        <div className="Review flex flex-col pb-20 bg-black">
-            <div className="review-title">
-                <h1 className="text-center md:text-6xl lg:text-7xl booking-area-title font-bold m-10 mt-20 bolder text-transparent bg-clip-text bg-gradient-to-r from-customPink to-customBlue">Review</h1>
-            </div>
-            <div className="review-content m-10">
-                <img src={PlaceholderRev} alt="" className="#" />
-            </div>
-        </div>
-
-           
-
             <div className="Partners bg-black">
                     <h1 className="Partner-title text-center md:text-6xl lg:text-7xl booking-area-title font-bold bolder text-transparent bg-clip-text bg-gradient-to-r from-customPink to-customBlue">OUR PARTNERS</h1>
                     <div className="partners-content grid">
