@@ -16,7 +16,7 @@
 
 
     .main-content, .highlight-title, .about-text, .booking-title, .room-name, .Partner-title, .faq-title, .faq-questions, .learn-more,
-    .logo-text {
+    .logo-text, .gallery, .faqs-title {
      font-family: 'Rowdies', sans-serif;
     }
 
@@ -222,4 +222,59 @@
     }
 
 
-   
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    
+    .carousel {
+      width: 100%;
+      position: relative;
+      margin: auto;
+      overflow: hidden;
+    }
+    
+    .slides {
+      display: flex;
+    }
+    
+    .slide {
+      flex: 0 0 100%;
+      transition: 1s;
+    }
+    
+    .navigation {
+      text-align: center;
+      padding: 10px 0;
+    }
+    
+    input[type="radio"] {
+      display: none;
+    }
+    
+    input[type="radio"]:checked ~ .slides {
+      transform: translateX(-100%);
+    }
+    
+    input[type="radio"]:nth-of-type(1):checked ~ .navigation label:nth-of-type(1),
+    input[type="radio"]:nth-of-type(2):checked ~ .navigation label:nth-of-type(2),
+    input[type="radio"]:nth-of-type(3):checked ~ .navigation label:nth-of-type(3) {
+      background-color: #333;
+    }
+    
+    .navigation label {
+      cursor: pointer;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin: 0 5px;
+      background-color: #ccc;
+    }
+    
+    .slide img {
+      width: 100%;
+      height: auto;
+    }
+    
+    

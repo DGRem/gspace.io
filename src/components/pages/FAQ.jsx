@@ -17,6 +17,10 @@ const ArcadeFAQ = () => {
       answer: 'The arcade is open to all ages. However, some games may have age restrictions, and parental guidance is advised for younger players.'
     },
     {
+      question: "Operating Hours and Days: When We're Available to Serve You?",
+      answer: "Monday to Sunday: Our services are available from 10AM to 12MN.",
+    },
+    {
       question: 'Do you offer group discounts for gaming hub rentals?',
       answer: 'Yes, we offer group discounts for gaming hub rentals. Contact our customer service for more information on group rates and special packages.'
     },
@@ -48,6 +52,9 @@ const ArcadeFAQ = () => {
     <>
     <NavBar/>
     <section className="bg-black pt-40">
+      <div className="faqs-title">Questions Unleashed
+          <h1 className="text-center md:text-6xl lg:text-7xl booking-area-title font-bold bolder text-transparent bg-clip-text bg-gradient-to-r from-customPink to-customBlue">Questions Unleashed</h1>
+      </div>
     <div className="container mx-auto p-4 mb-20">
       {faqs.map((faq, index) => (
         <div key={index} className="mb-4">

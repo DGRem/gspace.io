@@ -10,17 +10,17 @@ const RoomDetails = {
   arcade: {
     image: Pic1,
     description: 'Welcome to the Nexus of Nostalgia, the Arcade Room! Immerse yourself in a symphony of electronic symphonies and pixelated dreams. From the hypnotic glow of classic CRT monitors to the click-clack of arcade buttons, this room is a time capsule of gaming evolution. Unleash your inner pixel warrior as you navigate through mazes, dodge virtual enemies, and conquer high scores that echo through the corridors of gaming history. Get ready to level up your reality, where every token is a key to unlocking memories and every joystick is a magic wand in the hands of a digital sorcerer. Step inside, Player One, and let the adventure begin!',
-    price: 'P1,000 ',
+    price: '₱1,000 ',
   },
   console: {
     image: Pic2,
     description: "Welcome to the Console Citadel, where pixels meet power! Immerse yourself in the sleek aesthetics and high-tech prowess of gaming consoles from across the ages. From the iconic hum of loading screens to the satisfying click of a controller, this room is a haven for console enthusiasts. Unleash your inner adventurer as you explore vast digital landscapes, challenge legendary bosses, and forge unforgettable gaming moments. Get ready to level up your gaming experience, where every button press is a step towards victory and every console is a portal to infinite worlds. Grab your controller, Player Two, and let the gaming saga unfold!",
-    price: 'P1,500',
+    price: '₱1,500',
   },
   desktop: {
     image: Pic3,
     description: "Welcome to the Binary Battleground, the Desktop Gaming Room! Here, the hum of cooling fans harmonizes with the click-clack of mechanical keyboards, creating a symphony of digital conquest. Immerse yourself in the world of high-performance rigs, where graphics are crystal clear, and framerates are as smooth as a perfectly executed headshot. Unleash your strategic genius as you command armies, conquer galaxies, and embark on epic quests. Get ready to level up your gaming rig, where every pixel is a battlefield and every keystroke is a tactical maneuver. Power up your gaming throne, Player Zero, and let the desktop odyssey commence!",
-    price: 'P2,000',
+    price: '₱2,000',
   },
 };
 
@@ -57,30 +57,32 @@ export default function Booking() {
   return (
     <>
       <NavBar />
-      <div className="container mx-auto p-4 flex">
+      <main className='bg-black'>
+      <div className="container mx-auto p-4 flex p-40 pb-96 text-white">
         {/* Left Column */}
         <div className="w-1/2 pr-4">
-          <h1 className="text-2xl font-bold mb-4">Book a Gaming Room</h1>
-
+          <div className="booking-title">
+              <h1 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-customPink via-customBlue to-customBlue">Book a Gaming Room</h1>
+          </div>
           {/* Date Selector */}
-          <div className="mb-2">
-            <label className="block text-sm font-semibold mb-2">Select Date:</label>
+          <div className="mb-2 p-2">
+            <label className="block text-md text-customDarkPurple font-semibold mb-2">Select Date:</label>
             <input
               type="date"
               onChange={(e) => handleDateChange(e.target.value)}
               value={selectedDate}
-              className="border rounded px-3 py-2 w-full"
+              className="border rounded text-black px-3 py-2 w-full"
               required
             />
           </div>
 
           {/* Time Slot Selector */}
-          <div className="mb-2">
-            <label className="block text-sm font-semibold mb-2">Select Time Slot:</label>
+          <div className="mb-2 p-2">
+            <label className="block text-md text-customDarkPurple font-semibold mb-2">Select Time Slot:</label>
             <select
               onChange={(e) => handleTimeSlotChange(e.target.value)}
               value={selectedTimeSlot}
-              className="border rounded px-3 py-2 w-full"
+              className="border rounded text-black px-3 py-2 w-full"
               required
             >
               <option value="" disabled hidden>Select Time Slot</option>
@@ -91,12 +93,12 @@ export default function Booking() {
           </div>
 
           {/* Room Type Selector */}
-          <div className="mb-2">
-            <label className="block text-sm font-semibold mb-2">Select Room Type:</label>
+          <div className="mb-2 p-2">
+            <label className="block text-md text-customDarkPurple font-semibold mb-2">Select Room Type:</label>
             <select
               onChange={(e) => handleRoomChange(e.target.value)}
               value={selectedRoom}
-              className="border rounded px-3 py-2 w-full"
+              className="border rounded text-black px-3 py-2 w-full"
               required
             >
               <option value="" disabled hidden>Select Room Type</option>
@@ -109,17 +111,17 @@ export default function Booking() {
           {/* Booking Confirmation Section */}
           {selectedDate && selectedRoom && !isModalOpen && (
             <div className="mb-4">
-              <h2 className="text-lg font-semibold mb-2">Confirm Booking</h2>
-              <p className="mb-1">Date: {selectedDate}</p>
-              <p className="mb-1">Time Slot: {selectedTimeSlot}</p>
-              <p className="mb-1">Room Type: {selectedRoom}</p>
+              <h1 className="booking-title text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-customPink via-customBlue to-customBlue">Confirm Booking</h1>
+              <p className="mb-4"> <span className='text-customDarkPurple mr-2'>Date:</span>{selectedDate}</p>
+              <p className="mb-4 "><span className='text-customDarkPurple mr-2'>Time Slot:</span> {selectedTimeSlot}</p>
+              <p className="mb-4 "><span className='text-customDarkPurple mr-2'>Room Type:</span> {selectedRoom}</p>
               {isDateAvailable(selectedDate) ? (
                 <>
                   <button
                     onClick={() => setModalOpen(true)}
-                    className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+                    className="bg-blue-500 text-white px-3 py-2 rounded bg-gradient-to-r from-customBlue  to-customGreen"
                   >
-                    Check Availabilty
+                    Reserve Now
                   </button>
                 </>
               ) : (
@@ -134,19 +136,21 @@ export default function Booking() {
 
           {/* Room Preview */}
           {selectedRoom && RoomDetails[selectedRoom] && (
-            <div className="mb-4">
-              <h2 className="text-lg font-semibold mb-2">Room Preview</h2>
+            <div className="mb-4 border rounded-md">
+              <h1 className="booking-title text-2xl font-bold ml-5 text-transparent bg-clip-text bg-gradient-to-r from-customPink via-customBlue to-customBlue">Room Preview</h1>
+
               <img
                 src={RoomDetails[selectedRoom].image}
                 alt={`${selectedRoom} Room`}
-                className="w-full h-auto rounded"
+                className="w-full h-auto rounded p-5"
               />
-             <p>{RoomDetails[selectedRoom].description}</p>
-            <p>{RoomDetails[selectedRoom].price}</p>
+             <p className="p-4">{RoomDetails[selectedRoom].description}</p>
+            <p className="p-4">{RoomDetails[selectedRoom].price}</p>
             </div>
           )}
         </div>
       </div>
+      </main>
       <Footer />
 
       {isModalOpen && (
