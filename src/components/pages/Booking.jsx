@@ -57,7 +57,8 @@ export default function Booking() {
   return (
     <>
       <NavBar />
-      <div className="container mx-auto p-4 flex">
+      <main className='bg-customPurple text-white'>
+      <div className="container mx-auto p-4 flex pt-40 ">
         {/* Left Column */}
         <div className="w-1/2 pr-4">
           <h1 className="text-2xl font-bold mb-4">Book a Gaming Room</h1>
@@ -163,6 +164,7 @@ export default function Booking() {
           }}
         />
       )}
+      </main>
     </>
   );
 }
